@@ -1,9 +1,14 @@
+"use clietn";
 import Link from "next/link";
+import { ModeToggle } from "./toggle-theme";
+import { Button } from "./button";
+import { Menu } from "lucide-react";
+import { BtnNavigation } from "./btn-navigator";
 
 export function NavigationBar() {
   return (
-    <div className="flex justify-between items-center p-4 ">
-      <div className="flex gap-2 items-center font-bold">
+    <div className="flex justify-between items-center md:px-10 px-5 py-5 sticky top-0 dark:bg-black bg-white light:text-black z-[98]">
+      <div className="flex gap-2 items-center font-bold ">
         <img
           src="/vercel.svg"
           alt="company-profile"
@@ -11,7 +16,7 @@ export function NavigationBar() {
         />
         <p>Park Adventure</p>
       </div>
-      <ul className="flex gap-5 items-center">
+      <ul className="md:flex lg:flex hidden gap-8 items-center">
         <li>
           <Link href="/">Beranda</Link>
         </li>
@@ -30,7 +35,13 @@ export function NavigationBar() {
         <li>
           <Link href="/kontak">Kontak</Link>
         </li>
+        <li>
+          <ModeToggle />
+        </li>
       </ul>
+      <div className="md:hidden lg:hidden">
+        <BtnNavigation />
+      </div>
     </div>
   );
 }
