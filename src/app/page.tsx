@@ -3,10 +3,9 @@ import { NavigationBar } from "../components/ui/navigation";
 import { Footer } from "../components/ui/footer";
 import HeroSection from "../components/landingpage/herosection";
 import PacketSection from "../components/landingpage/packetsection";
-import LandingLayout from "./(landing)/layout";
 import { GalerySection } from "../components/landingpage/galerysection";
-import TestimoniSection from "../components/landingpage/testimoni";
 import AboutSection from "../components/landingpage/aboutsection";
+import { MapSection } from "@/components/landingpage/mapsectio";
 
 export default function Home() {
   const dataDummy = [
@@ -49,8 +48,12 @@ export default function Home() {
         <section className="mt-20  p-10">
           <PacketSection />
         </section>
-        <section className="pt-20 ">
+      
+        <section className="pt-20 px-10">
           <GalerySection data={dataDummy} />
+        </section>
+        <section className="mt-20  p-10">
+          <MapSection />
         </section>
       </section>
       <Footer />

@@ -26,9 +26,10 @@ export function BoxPacket({ data }: any) {
             <CarouselItem key={idx} className="md:basis-1/2">
               <div className="bg-stone-800 flex md:h-[400px] rounded-md text-white md:flex-row flex-col">
                 <div
-                  className={`bg-[url(/whiterafting.png)] bg-bottom md:w-[300px] md:h-full h-[150px] flex items-end`}
+                  className={`relative bg-[url(/whiterafting.png)] bg-bottom md:w-[300px] md:h-full h-[150px] flex items-end rounded-bl-xl rounded-tl-xl`}
                 >
-                  <div className="text-white bg-linear-to-b from-white-0 to-gray-900 p-4 w-full">
+                   <div className="backdrop-blur-md mask-t-from-0.5 absolute w-full h-[100px] z-0 bg-gradient-to-b from-transparent to-black/10 rounded-bl-xl rounded-tl-xl "></div>
+                  <div className="text-white p-4 w-full z-1">
                     <p
                       className={`${phudu.className} text-4xl font-extrabold tracking-tighter `}
                     >

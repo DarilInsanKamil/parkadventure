@@ -17,8 +17,8 @@ const PacketSection = () => {
             rafting, paintball, flying fox.
           </p>
         </div>
-        <ul className=" flex gap-3 text-sm items-center mt-10 flex-wrap">
-          <li className="dark:bg-white bg-gray-900 text-white px-4 py-1 rounded-full text-sm">
+        <ul className=" flex gap-3 text-sm items-center mt-10 flex-wrap ">
+          <li className="bg-white text-gray-900 px-4 py-1 rounded-full text-sm">
             Rafting
           </li>
           <li className="border dark:border-white border-black px-4 py-1 rounded-full">
