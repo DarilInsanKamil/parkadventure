@@ -2,7 +2,7 @@ import { phudu } from "@/lib/utils";
 
 export function Footer() {
   return (
-    <footer className="bg-orange-500 mt-20 md:p-10 p-5 grid md:grid-cols-12 grid-cols-6 gap-4">
+    <footer className="bg-orange-500 md:p-10 p-5 grid md:grid-cols-12 grid-cols-6 gap-4 text-white">
       <div className="col-start-1 col-end-7 ">
         <h1 className={`${phudu.className} text-4xl font-extrabold`}>Park Adventure</h1>
         <h4>

@@ -6,6 +6,7 @@ import PacketSection from "../components/landingpage/packetsection";
 import { GalerySection } from "../components/landingpage/galerysection";
 import AboutSection from "../components/landingpage/aboutsection";
 import { MapSection } from "@/components/landingpage/mapsectio";
+import { CTASection } from "@/components/landingpage/ctasection";
 
 export default function Home() {
   const dataDummy = [
@@ -39,21 +40,23 @@ export default function Home() {
     <>
       <NavigationBar />
       <section>
-        <section className="mt-5 px-10">
+        <section className="mt-5 md:px-10 px-5">
           <HeroSection />
         </section>
-        <section className="mt-20 px-10">
+        <section className="mt-20 md:px-10 px-5">
           <AboutSection />
         </section>
-        <section className="mt-20  p-10">
+        <section className="mt-20 md:p-10 p-5">
           <PacketSection />
         </section>
-      
-        <section className="pt-20 px-10">
+        <section className="pt-20 md:px-10 p-5">
           <GalerySection data={dataDummy} />
         </section>
-        <section className="mt-20  p-10">
+        <section className="mt-20 md:px-10 p-5">
           <MapSection />
+        </section>
+        <section className="mt-20">
+          <CTASection />
         </section>
       </section>
       <Footer />
