@@ -1,8 +1,9 @@
+import { FormPaket } from '@/components/ui/form-paket'
 import React from 'react'
 
 const Page = () => {
   return (
-    <div>Form paket</div>
+    <FormPaket/>
   )
 }
 

@@ -19,8 +19,8 @@ import {
 import { NavMain } from "./nav-main";
 import { TeamSwitcher } from "./team-switch";
 import { NavUser } from "./nav-user";
+import { RaftingIcon } from "./icon";
 
-// This is sample data.
 const data = {
   user: {
     name: "shadcn",
@@ -36,90 +36,82 @@ const data = {
   ],
   navMain: [
     {
-      title: "Playground",
+      title: "Paket Adventure",
       url: "#",
-      icon: SquareTerminal,
+      icon: RaftingIcon,
       isActive: true,
       items: [
         {
-          title: "History",
-          url: "#",
+          title: "View Data",
+          url: "/dashboard/paket-adventure",
         },
         {
-          title: "Starred",
-          url: "#",
-        },
-        {
-          title: "Settings",
-          url: "#",
+          title: "Form Data",
+          url: "/dashboard/paket-adventure/form-paket",
         },
       ],
     },
     {
-      title: "Models",
+      title: "Galeri",
       url: "#",
       icon: Bot,
       items: [
         {
-          title: "Genesis",
-          url: "#",
+          title: "View Data",
+          url: "/dashboard/galeri",
         },
         {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
+          title: "Form Data",
+          url: "/dashboard/galeri/form-galeri",
         },
       ],
     },
-    {
-      title: "Documentation",
-      url: "#",
-      icon: BookOpen,
-      items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
-    },
+    // {
+    //   title: "Documentation",
+    //   url: "#",
+    //   icon: BookOpen,
+    //   items: [
+    //     {
+    //       title: "Introduction",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Get Started",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Tutorials",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Changelog",
+    //       url: "#",
+    //     },
+    //   ],
+    // },
+    // {
+    //   title: "Settings",
+    //   url: "#",
+    //   icon: Settings2,
+    //   items: [
+    //     {
+    //       title: "General",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Team",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Billing",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Limits",
+    //       url: "#",
+    //     },
+    //   ],
+    // },
   ],
 };
 

@@ -1,8 +1,10 @@
 import React from 'react'
 
-const Page = () => {
+const Page = async() => {
+  const res = await fetch("https://dummyjson.com/products")
+  const data = await res.json()
   return (
-    <div>Page paket</div>
+    <p>{JSON.stringify(data)}</p>    
   )
 }
 
