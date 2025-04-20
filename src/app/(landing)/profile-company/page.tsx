@@ -10,7 +10,7 @@ import React from "react";
 
 const Page = () => {
   return (
-    <section>
+    <section className="mb-10">
       <div className="bg-[url(/background.png)] bg-no-repeat bg-cover bg-center w-full h-[300px] content-none"></div>
       <div className="md:px-40 px-5 mt-10">
         <h1 className={`${phudu.className} text-5xl font-extrabold`}>

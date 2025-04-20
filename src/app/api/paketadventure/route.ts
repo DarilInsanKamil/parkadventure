@@ -1,20 +1,87 @@
 export async function GET(req: Request) {
     try {
-        const res = [{
-            "id": 1,
-            "alt": "test-image",
-            "title": "whiteasdsa",
-            "price": 200000,
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "image": "/background.png",
-            "list": [{
+        const res = [
+            {
                 "id": 1,
-                "title": "Paket Adventure",
-            }, {
+                "alt": "test-image",
+                "title": "whiteasdsa",
+                "price": 200000,
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                "image": "/background.png",
+                "category": "rafting",
+                "list": [{
+                    "id": 1,
+                    "title": "Paket Adventure",
+                }, {
+                    "id": 2,
+                    "title": "Paket Adventure2",
+                }]
+            },
+            {
                 "id": 2,
-                "title": "Paket Adventure2",
-            }]
-        }];
+                "alt": "test-image",
+                "title": "whiteasdsa2",
+                "price": 200000,
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                "image": "/background.png",
+                "category": "rafting",
+                "list": [{
+                    "id": 1,
+                    "title": "Paket Adventure",
+                }, {
+                    "id": 2,
+                    "title": "Paket Adventure2",
+                }]
+            },
+            {
+                "id": 3,
+                "alt": "test-image",
+                "title": "whiteasdsa3",
+                "price": 200000,
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                "image": "/background.png",
+                "category": "rafting",
+                "list": [{
+                    "id": 1,
+                    "title": "Paket Adventure",
+                }, {
+                    "id": 2,
+                    "title": "Paket Adventure2",
+                }]
+            },
+            {
+                "id": 4,
+                "alt": "test-image",
+                "title": "whiteasdsa4",
+                "price": 200000,
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                "image": "/background.png",
+                "category": "outbond",
+                "list": [{
+                    "id": 1,
+                    "title": "Paket Adventure",
+                }, {
+                    "id": 2,
+                    "title": "Paket Adventure2",
+                }]
+            },
+            {
+                "id": 5,
+                "alt": "test-image",
+                "title": "whiteasdsa5",
+                "price": 200000,
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                "image": "/background.png",
+                "category": "outbond",
+                "list": [{
+                    "id": 1,
+                    "title": "Paket Adventure",
+                }, {
+                    "id": 2,
+                    "title": "Paket Adventure2",
+                }]
+            },
+        ];
 
         return new Response(JSON.stringify(res), {
             status: 200,

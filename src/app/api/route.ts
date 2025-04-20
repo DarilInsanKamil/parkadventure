@@ -1,10 +1,32 @@
 export async function GET(req: Request) {
     try {
-        const res = [{
-            "id": 1,
-            "name": "John Doe",
-            "email": "jhondoe@mail.com"
-        }];
+        const res = [
+            {
+                "id": 1,
+                "name": "John Doe",
+                "email": "jhondoe@mail.com"
+            },
+            {
+                "id": 2,
+                "name": "John Doe1",
+                "email": "jhondoe@mail.com"
+            },
+            {
+                "id": 3,
+                "name": "John Doe2",
+                "email": "jhondoe@mail.com"
+            },
+            {
+                "id": 4,
+                "name": "John Doe3",
+                "email": "jhondoe@mail.com"
+            },
+            {
+                "id": 5,
+                "name": "John Doe4",
+                "email": "jhondoe@mail.com"
+            },
+        ];
 
         return new Response(JSON.stringify(res), {
             status: 200,
