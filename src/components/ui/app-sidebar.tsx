@@ -4,6 +4,7 @@ import * as React from "react";
 import {
   Bot,
   GalleryVerticalEnd,
+  Sailboat,
 } from "lucide-react";
 
 import {
@@ -16,7 +17,6 @@ import {
 import { NavMain } from "./nav-main";
 import { TeamSwitcher } from "./team-switch";
 import { NavUser } from "./nav-user";
-import { RaftingIcon } from "./icon";
 
 const data = {
   user: {
@@ -35,7 +35,7 @@ const data = {
     {
       title: "Paket Adventure",
       url: "#",
-      icon: RaftingIcon,
+      icon: Sailboat,
       isActive: true,
       items: [
         {
