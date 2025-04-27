@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { NavigationBar } from "../components/ui/navigation";
 import { Footer } from "../components/ui/footer";
 import HeroSection from "../components/landingpage/herosection";

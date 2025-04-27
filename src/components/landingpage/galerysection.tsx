@@ -2,7 +2,12 @@ import { phudu } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
 
-export function GalerySection({ data }: any) {
+
+interface GaleryData {
+  id: number,
+  image: string
+}
+export function GalerySection({ data }: {data: GaleryData[]}) {
   return (
     <div className="flex flex-wrap justify-center">
       <div className=" bg-orange-500 md:w-[300px] w-full h-[340px] flex justify-center items-center text-center relative">
@@ -10,13 +15,13 @@ export function GalerySection({ data }: any) {
           Gallery Activity
         </p>
       </div>
-      {data.map((res: any, idx: number) => {
+      {data.map((res: GaleryData, idx: number) => {
         return (
           <div key={idx}>
             <img
               className=" bg-blue-400 md:w-[300px] w-full md:h-[340px] h-full"
               src={res.image}
-              alt={res.id}
+              alt={res.image}
             />
           </div>
         );

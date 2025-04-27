@@ -24,7 +24,7 @@ export function NavMain({
   items: {
     title: string
     url: string
-    icon?: any
+    icon?: LucideIcon
     isActive?: boolean
     items?: {
       title: string

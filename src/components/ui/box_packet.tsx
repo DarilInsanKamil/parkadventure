@@ -12,7 +12,22 @@ import { Button } from "./button";
 import { formatRupiah } from "@/lib/convertPrice";
 import { CircleCheck } from "lucide-react";
 
-export function BoxPacket({ data }: any) {
+interface ListItem {
+  id: number;
+  nama: string;
+}
+
+interface PacketData {
+  id: number;
+  image: string;
+  price: number;
+  nama: string;
+  deskripsi: string;
+  list: ListItem[];
+}
+
+
+export function BoxPacket({ data }: {data: PacketData[]}) {
   return (
     <Carousel
       opts={{
@@ -21,7 +36,7 @@ export function BoxPacket({ data }: any) {
       className="w-full md:max-w-[95%] max-w-sm"
     >
       <CarouselContent>
-        {data?.map((res: any, idx: number) => {
+        {data?.map((res: PacketData, idx: number) => {
           return (
             <CarouselItem key={idx} className="md:basis-1/2">
               <div className="bg-stone-800 flex md:h-[400px] rounded-md text-white md:flex-row flex-col">

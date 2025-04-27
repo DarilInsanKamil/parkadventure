@@ -1,15 +1,8 @@
 "use client";
 import { inter, phudu } from "@/lib/utils";
-import {
-  CalendarCheck2,
-  Hourglass,
-  HourglassIcon,
-  PartyPopper,
-  PhoneCall,
-} from "lucide-react";
+import { CalendarCheck2, HourglassIcon } from "lucide-react";
 import React from "react";
 import { CampIcon, CannonBallIcon, OffroadIcon, RaftingIcon } from "../ui/icon";
-import { Button } from "../ui/button";
 
 const AboutSection = () => {
   return (
