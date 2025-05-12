@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createGaleri, getAllData } from "./_action";
+import { join } from "path";
+import mime from 'mime'
+import { mkdir, stat, writeFile } from "fs/promises";
 
 export async function GET(_req: NextRequest) {
     try {
@@ -26,11 +29,50 @@ export async function GET(_req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-    try {
-        const body = await req.json()
-        const { id_game, nama_photo, image_src, is_active } = body
+    const formData = await req.formData()
+    const id_game = Number(formData.get('id_game')) as number
+    const nama_photo = formData.get('nama_photo') as string
+    const image_src = formData.get('image_src') as File
+    const is_active = formData.get('is_active') === "true" ? true : false
 
-        const newFasilitas = await createGaleri({ id_game, nama_photo, image_src, is_active })
+    const buffer = Buffer.from(await image_src.arrayBuffer());
+    const relativeUploadDir = `/uploads/${new Date(Date.now())
+        .toLocaleDateString("id-ID", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+        })
+        .replace(/\//g, "-")}`;
+
+    const uploadDir = join(process.cwd(), "public", relativeUploadDir);
+
+    try {
+        await stat(uploadDir);
+    } catch (e: any) {
+        if (e.code === "ENOENT") {
+            // This is for checking the directory is exist (ENOENT : Error No Entry)
+            await mkdir(uploadDir, { recursive: true });
+        } else {
+            console.error(
+                "Error while trying to create directory when uploading a file\n",
+                e
+            );
+            return NextResponse.json(
+                { error: "Something went wrong." },
+                { status: 500 }
+            );
+        }
+    }
+    try {
+        const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
+        const filename = `${image_src.name.replace(
+            /\.[^/.]+$/,
+            ""
+        )}-${uniqueSuffix}.${mime.getExtension(image_src.type)}`;
+        await writeFile(`${uploadDir}/${filename}`, buffer);
+        const fileUrl = `${relativeUploadDir}/${filename}`;
+
+        const newFasilitas = await createGaleri({ id_game, nama_photo, image_src: fileUrl, is_active })
         return new NextResponse(JSON.stringify({ message: "Success Insert Data", newFasilitas }), {
             status: 201,
             headers: {

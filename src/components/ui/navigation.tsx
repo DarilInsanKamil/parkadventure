@@ -8,7 +8,7 @@ export function NavigationBar() {
   const pathname = usePathname()
   
   return (
-    <div className="flex justify-between items-center md:px-10 px-5 py-5 sticky top-0 dark:bg-black bg-white light:text-black z-[98]">
+    <div className="flex justify-between items-center md:px-10 px-5 py-5 sticky top-0 dark:bg-dark bg-white light:text-black z-[98]">
       <div className="flex gap-2 items-center font-bold ">
         <img
           src="/vercel.svg"

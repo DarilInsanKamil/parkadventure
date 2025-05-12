@@ -1,7 +1,7 @@
 import { pool } from "../db";
 
 export async function getAllData() {
-    const res = await pool.query('SELECT * FROM "game" WHERE "is_active" = false')
+    const res = await pool.query('SELECT * FROM "game" WHERE "is_active" = true')
     return res.rows;
 }
 

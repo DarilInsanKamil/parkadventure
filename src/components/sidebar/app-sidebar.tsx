@@ -63,6 +63,51 @@ const data = {
         },
       ],
     },
+    {
+      title: "Testimoni",
+      url: "#",
+      icon: Bot,
+      items: [
+        {
+          title: "View Data",
+          url: "/dashboard/testimoni",
+        },
+        {
+          title: "Form Data",
+          url: "/dashboard/testimoni/form-testimoni",
+        },
+      ],
+    },
+    {
+      title: "Game",
+      url: "#",
+      icon: Bot,
+      items: [
+        {
+          title: "View Data",
+          url: "/dashboard/game",
+        },
+        {
+          title: "Form Data",
+          url: "/dashboard/game/form-game",
+        },
+      ],
+    },
+    {
+      title: "Fasilitas",
+      url: "#",
+      icon: Bot,
+      items: [
+        {
+          title: "View Data",
+          url: "/dashboard/fasilitas",
+        },
+        {
+          title: "Form Data",
+          url: "/dashboard/fasilitas/form-fasilitas",
+        },
+      ],
+    },
     // {
     //   title: "Documentation",
     //   url: "#",

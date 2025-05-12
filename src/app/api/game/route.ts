@@ -29,7 +29,17 @@ export async function POST(req: NextRequest) {
     try {
         const body = await req.json()
         const { nama_game, deskripsi_game, lokasi, is_active } = body
-
+        
+         if (!nama_game || !deskripsi_game || !lokasi) {
+            return new NextResponse(JSON.stringify({ 
+                error: "Missing required fields: nama_game, deskripsi_game, lokasi" 
+            }), {
+                status: 400,
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+        }
 
         const newFasilitas = await createGame({ nama_game, deskripsi_game, lokasi, is_active })
         return new NextResponse(JSON.stringify({ message: "Success Insert Data", newFasilitas }), {
