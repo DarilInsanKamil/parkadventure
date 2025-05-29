@@ -21,11 +21,6 @@ import { Button } from "@/components/ui/button";
 
 const navItems = [
   {
-    title: "Dashboard",
-    href: "/admin",
-    icon: <LayoutDashboard className="h-5 w-5" />,
-  },
-  {
     title: "Games",
     href: "/admin/games",
     icon: <Mountain className="h-5 w-5" />,
@@ -73,7 +68,7 @@ export default function Sidebar() {
   // Define navigation items
 
   return (
-    <div className="hidden md:flex flex-col w-64 bg-white border-r border-gray-200">
+    <div className="hidden md:flex flex-col w-64 dark:bg-[#0a1f0c] border-r border-[#3e4a3d]">
       {/* Logo */}
       <div className="h-16 flex items-center justify-center border-b">
         <Link href="/admin" className="flex items-center space-x-2">
@@ -102,8 +97,8 @@ const NavContent = ({ navItems }: { navItems: any }) => {
               className={cn(
                 "flex items-center space-x-3 px-3 py-2 rounded-md text-sm font-medium transition-colors",
                 pathname === item.href || pathname.startsWith(`${item.href}/`)
-                  ? "bg-red-100 text-primary"
-                  : "text-gray-700 hover:bg-gray-100"
+                  ? "bg-[#2d3a2e] text-primary"
+                  : "dark:text-white hover:bg-[#388e3c]"
               )}
             >
               {item.icon}
@@ -111,12 +106,13 @@ const NavContent = ({ navItems }: { navItems: any }) => {
             </Link>
           </li>
         ))}
+        <li className="border-b"></li>
       </ul>
 
-      <div className="mt-auto p-4 border-t">
+      <div className="mt-5">
         <Button
           variant="outline"
-          className="w-full justify-start text-gray-700"
+          className="w-full justify-start text-gray-700 bg-[#c62828]"
           onClick={() => signOut()}
         >
           <LogOut className="mr-2 h-4 w-4" />

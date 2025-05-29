@@ -147,7 +147,7 @@ export default function TestimonialsPage() {
 
   return (
     <DashboardLayout>
-      <div className="space-y-4">
+      <div className="space-y-4 text-black">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold tracking-tight">Testimonials</h1>
           <Button onClick={() => router.push("/admin/testimonials/new")}>
@@ -157,10 +157,10 @@ export default function TestimonialsPage() {
         
         <div className="flex items-center py-4">
           <div className="relative max-w-sm">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+            <Search className="absolute left-2.5 top-2.5 h-4 w-4" />
             <Input
               placeholder="Search testimonials..."
-              className="pl-8"
+              className="pl-8 placeholder:text-black"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -169,11 +169,11 @@ export default function TestimonialsPage() {
         
         {loading ? (
           <div className="flex items-center justify-center h-64">
-            <p className="text-lg text-muted-foreground">Loading testimonials...</p>
+            <p className="text-lg">Loading testimonials...</p>
           </div>
         ) : filteredTestimonials.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-64 space-y-3">
-            <p className="text-lg text-muted-foreground">No testimonials found</p>
+            <p className="text-lg">No testimonials found</p>
             {searchTerm ? (
               <Button variant="outline" onClick={() => setSearchTerm("")}>
                 Clear Search
@@ -188,7 +188,7 @@ export default function TestimonialsPage() {
           <div className="border rounded-md">
             <Table>
               <TableHeader>
-                <TableRow>
+                <TableRow className="dark:bg-black">
                   <TableHead>Customer</TableHead>
                   <TableHead>Role</TableHead>
                   <TableHead>Rating</TableHead>

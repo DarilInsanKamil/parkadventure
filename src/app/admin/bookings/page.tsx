@@ -129,7 +129,7 @@ export default function Page() {
 
   return (
     <DashboardLayout>
-      <div className="space-y-4">
+      <div className="space-y-4 text-black">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold tracking-tight">Bookings</h1>
           <Button onClick={() => router.push("/admin/bookings/new")}>
@@ -139,7 +139,7 @@ export default function Page() {
         
         <div className="flex flex-col sm:flex-row gap-4 items-center py-4">
           <div className="relative w-full sm:max-w-sm">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+            <Search className="absolute left-2.5 top-2.5 h-4 w-4" />
             <Input
               placeholder="Search bookings..."
               className="pl-8 w-full"
@@ -164,11 +164,11 @@ export default function Page() {
         
         {loading ? (
           <div className="flex items-center justify-center h-64">
-            <p className="text-lg text-muted-foreground">Loading bookings...</p>
+            <p className="text-lg">Loading bookings...</p>
           </div>
         ) : filteredBookings.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-64 space-y-3">
-            <p className="text-lg text-muted-foreground">No bookings found</p>
+            <p className="text-lg">No bookings found</p>
             {searchTerm || statusFilter ? (
               <Button variant="outline" onClick={() => {
                 setSearchTerm("");

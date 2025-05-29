@@ -102,7 +102,7 @@ export default function GamesPage() {
 
   return (
     <DashboardLayout>
-      <div className="space-y-4">
+      <div className="space-y-4 text-black">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold tracking-tight">Games</h1>
           <Button onClick={() => router.push("/admin/games/new")}>
@@ -110,12 +110,12 @@ export default function GamesPage() {
           </Button>
         </div>
         
-        <div className="flex items-center py-4">
+        <div className="flex items-center py-4 bg-white">
           <div className="relative max-w-sm">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+            <Search className="absolute left-2.5 top-2.5 h-4 w-4" />
             <Input
               placeholder="Search games..."
-              className="pl-8"
+              className="pl-8 placeholder:text-black"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -124,7 +124,7 @@ export default function GamesPage() {
         
         {loading ? (
           <div className="flex items-center justify-center h-64">
-            <p className="text-lg text-muted-foreground">Loading games...</p>
+            <p className="text-lg">Loading games...</p>
           </div>
         ) : filteredGames.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-64 space-y-3">

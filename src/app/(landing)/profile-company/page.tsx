@@ -1,8 +1,8 @@
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 import { MapSection } from "@/components/landingpage/mapsectio";
 import { contact, inter, phudu } from "@/lib/utils";
-import { Activity } from "lucide-react";
+import { Activity, Instagram, Mail, Music2, PhoneCall } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -27,14 +27,26 @@ const Page = async () => {
             WHO WE ARE?
           </p>
           <p className="mt-5">
-            CV. Batok Rafting Indonesia adalah destinasi rekreasi terpercaya
-            yang menghadirkan petualangan berkualitas sejak 2010. Kami
-            berkomitmen menjadi tujuan rekreasi keluarga dan perusahaan yang
-            menyajikan pengalaman seru dengan fasilitas terbaik dan keamanan
-            terjamin. Berlokasi strategis di kawasan Caringin dengan pemandangan
-            alam yang memukau, Batok Rafting hadir sebagai surga petualangan
-            yang menawarkan berbagai aktivitas menantang dan menyenangkan untuk
-            semua usia.
+            Didirikan pada tahun 2014, Batok Rafting hadir sebagai penyedia
+            layanan wisata petualangan di kawasan Caringin, Bogor.Kami
+            menawarkan pengalaman seru dan menantang melalui kegiatan arung
+            jeram (rafting) dll serta kegiatan gathering, outing, raker atau
+            acara besar lainnya. Beragam paket one day trip, two day trip &
+            halfday trip yang dirancang untuk semua kalangan - mulai dari pemula
+            hingga pecinta adrenalin sejati. Lokasi Strategis, Alam yang Asri
+            Berlokasi di Jl. Muara Jaya, Kecamatan Caringin, Kabupaten Bogor,
+            area kami dikelilingi oleh keindahan alam pegunungan yang masih
+            asri, menjadikan setiap petualangan semakin berkesan.
+          </p>
+        </div>
+        <div className="md:mt-20 mt-10">
+          <p
+            className={`${phudu.className} font-extrabold text-3xl md:text-5xl md:text-left `}
+          >
+            OUR COMITMENT?
+          </p>
+          <p className="mt-5">
+            Kami berkomitmen untuk memberikan pengalaman kegiatan wisata yang aman, menyenangkan dan berkesan. Didukung oleh tim profesional dan fasilitas lengkap, Batok Rafting siap menjadi destinasi pilihan untuk wisata alam Anda.
           </p>
         </div>
         <div className="flex md:flex-row flex-col gap-5 md:mt-20 mt-10">
@@ -162,7 +174,7 @@ const Page = async () => {
             memastikan pengalaman petualangan Anda berjalan lancar dan berkesan.
           </p>
         </div>
-        <div className="mt-10 grid md:grid-cols-3 grid-cols-2 gap-5">
+        <div className="mt-10 grid md:grid-cols-3 grid-cols-1 gap-5">
           {data.map((res: any, idx: number) => (
             <Link
               href={`/games/${res.id_game}/paket-adventure`}
@@ -173,7 +185,9 @@ const Page = async () => {
               <p className="dark:text-orange-50 font-semibold">
                 {res.nama_game}
               </p>
-              <p className="dark:text-gray-400 text-gray-600 mt-3">{res.deskripsi_game}</p>
+              <p className="dark:text-gray-400 text-gray-600 mt-3 line-clamp-3">
+                {res.deskripsi_game}
+              </p>
             </Link>
           ))}
         </div>
@@ -187,17 +201,33 @@ const Page = async () => {
             Contact
           </p>
         </div>
-        <div className="grid md:grid-cols-3 grid-cols-2 gap-5 mt-10">
-          {contact.map((res, idx) => (
-            <Link
-              href={res.link}
-              key={idx}
-              target="_blank"
-              className="dark:bg-[#0a1f0c] bg-orange-200 w-full p-5 rounded-md  transition-all"
-            >
-              <p className="dark:text-orange-50 font-medium">{res.nama}</p>
+        <div className=" gap-5 mt-10">
+          <ul className="flex justify-between w-full gap-5 flex-col md:flex-row">
+            <Link className="p-3 dark:bg-[#0a1f0c] w-full rounded-md" target="_blank" href="mailto:cvbatokrafting@gmail.com">
+              <li className="flex gap-5">
+                <Mail />
+                Email
+              </li>
             </Link>
-          ))}
+            <Link className="p-3 dark:bg-[#0a1f0c] w-full rounded-md" target="_blank" href="https://wa.me/6287770219001">
+              <li className="flex gap-5">
+                <PhoneCall />
+                Whatsapp
+              </li>
+            </Link>
+            <Link className="p-3 dark:bg-[#0a1f0c] w-full rounded-md" target="_blank" href="https://instagram.com/batokrafting">
+              <li className="flex gap-5">
+                <Instagram />
+                Instagram
+              </li>
+            </Link>
+            <Link className="p-3 dark:bg-[#0a1f0c] w-full rounded-md" target="_blank" href="https://tiktok.com/@atv.trackbogor">
+              <li className="flex gap-5">
+                <Music2 />
+                Tiktok
+              </li>
+            </Link>
+          </ul>
         </div>
       </div>
 

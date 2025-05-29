@@ -11,8 +11,8 @@ export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url);
     const isActive = searchParams.get("active");
     const gameId = searchParams.get("game");
-    
-     let queryText = `
+
+    let queryText = `
       SELECT 
         p.*,
         g.nama_game as game_name,
@@ -29,32 +29,32 @@ export async function GET(req: NextRequest) {
 
     const queryParams: any[] = [];
     let paramCount = 1;
-    
+
     // Build the WHERE clause based on filters
     if (isActive !== null || gameId !== null) {
       queryText += " WHERE";
-      
+
       if (isActive !== null) {
         queryText += ` p.is_active = $${paramCount}`;
         queryParams.push(isActive === "true");
         paramCount++;
         if (gameId !== null) queryText += " AND";
       }
-      
+
       if (gameId !== null) {
         queryText += ` p.id_game = $${paramCount}`;
         queryParams.push(parseInt(gameId));
         paramCount++;
       }
     }
-    
+
     // Add ordering
     queryText += " GROUP BY p.id_paket, g.nama_game ORDER BY p.title_paket ASC";
-    
+
     const result = await query(queryText, queryParams);
-    
+
     return NextResponse.json(result.rows.map(item => ({
-     id_package: item.id_paket,
+      id_package: item.id_paket,
       name: item.title_paket,
       image_src: item.image_src,
       description: item.deskripsi_paket,
@@ -89,35 +89,35 @@ export async function POST(req: NextRequest) {
         { status: 401 }
       );
     }
-    
+
     const body = await req.json();
-    
+
     // Insert new package
     const result = await query(
       `INSERT INTO item_paket (id_game, title_paket, harga_paket, image_src, deskripsi_paket, min_peserta, max_peserta, durasi, is_active) 
        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) 
        RETURNING *`,
       [
-        body.id_game, 
-        body.title_paket, 
-        body.harga_paket, 
-        body.image_src, 
-        body.deskripsi_paket, 
-        body.min_peserta, 
-        body.max_peserta, 
-        body.durasi, 
+        body.id_game,
+        body.title_paket,
+        body.harga_paket,
+        body.image_src,
+        body.deskripsi_paket,
+        body.min_peserta,
+        body.max_peserta,
+        body.durasi,
         body.is_active
       ]
     );
-    
+
     // Fetch the game name for the response
     const gameResult = await query(
       "SELECT nama_game FROM game WHERE id_game = $1",
       [body.id_game]
     );
-    
+
     const gameName = gameResult.rows.length > 0 ? gameResult.rows[0].nama_game : null;
-    
+
     return NextResponse.json({
       id_package: result.rows[0].id_paket,
       name: result.rows[0].title_paket,

@@ -4,48 +4,66 @@ import { query } from "@/lib/db";
 import { authOptions } from "@/lib/auth";
 
 // GET a single package by ID
+
+// GET a single package by ID (with facilities)
 export async function GET(
-  req: NextRequest,
+  _req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const { id } = await params;
-    
+
     if (!id) {
       return NextResponse.json(
         { error: "Package ID is required" },
         { status: 400 }
       );
     }
-    
+
     const result = await query(
-      `SELECT p.*, g.nama_game as game_name 
-       FROM item_paket p 
-       LEFT JOIN game g ON p.id_game = g.id_game 
-       WHERE p.id_paket = $1`,
+      `
+      SELECT 
+        p.*,
+        g.nama_game as game_name,
+        ARRAY_AGG(
+          JSONB_BUILD_OBJECT(
+            'id', fp.id_fasilitas,
+            'name', fp.nama_fasilitas
+          )
+        ) as facilities
+      FROM item_paket p 
+      LEFT JOIN game g ON p.id_game = g.id_game
+      LEFT JOIN fasilitas_paket fp ON p.id_paket = fp.id_paket
+      WHERE p.id_paket = $1
+      GROUP BY p.id_paket, g.nama_game
+      `,
       [id]
     );
-    
+
     if (result.rows.length === 0) {
       return NextResponse.json(
         { error: "Package not found" },
         { status: 404 }
       );
     }
-    
+
+    const item = result.rows[0];
+
     return NextResponse.json({
-      id_package: result.rows[0].id_paket,
-      name: result.rows[0].title_paket,
-      description: result.rows[0].deskripsi_paket,
-      price: result.rows[0].harga_paket,
-      duration: result.rows[0].durasi,
-      min_participants: result.rows[0].min_peserta,
-      max_participants: result.rows[0].max_peserta,
-      game_name: result.rows[0].game_name,
-      id_game: result.rows[0].id_game,
-      is_active: result.rows[0].is_active,
-      created_at: result.rows[0].created_at,
-      updated_at: result.rows[0].updated_at
+      id_package: item.id_paket,
+      name: item.title_paket,
+      image_src: item.image_src,
+      description: item.deskripsi_paket,
+      price: item.harga_paket,
+      duration: item.durasi,
+      min_participants: item.min_peserta,
+      max_participants: item.max_peserta,
+      game_name: item.game_name,
+      id_game: item.id_game,
+      is_active: item.is_active,
+      facilities: item.facilities.filter((f: any) => f.id !== null),
+      created_at: item.created_at,
+      updated_at: item.updated_at
     });
   } catch (error) {
     console.error(`Error fetching package with ID:`, error);

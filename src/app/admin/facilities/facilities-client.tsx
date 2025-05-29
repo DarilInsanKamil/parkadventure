@@ -94,7 +94,7 @@ export function FacilitiesClient({ facilities }: FacilitiesClientProps) {
 
   return (
     <DashboardLayout>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between text-black">
         <h1 className="text-2xl font-bold tracking-tight">Facilities</h1>
         <Link href="/admin/facilities/new">
           <Button size="sm">
@@ -105,7 +105,7 @@ export function FacilitiesClient({ facilities }: FacilitiesClientProps) {
       </div>
 
       {/* Search input */}
-      <div className="flex mt-4 mb-6">
+      <div className="flex mt-4 mb-6 text-black">
         <div className="relative flex-1 max-w-sm">
           <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
           <Input
@@ -120,13 +120,13 @@ export function FacilitiesClient({ facilities }: FacilitiesClientProps) {
       <div className="border rounded-md">
         <Table>
           <TableHeader>
-            <TableRow>
+            <TableRow className="dark:bg-black">
               <TableHead>Facility Name</TableHead>
               <TableHead>Paket</TableHead>
               <TableHead className="w-[100px]">Actions</TableHead>
             </TableRow>
           </TableHeader>
-          <TableBody>
+          <TableBody className="text-black">
             {filteredFacilities.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={4} className="h-24 text-center">
@@ -140,7 +140,7 @@ export function FacilitiesClient({ facilities }: FacilitiesClientProps) {
                     {facility.nama_fasilitas}
                   </TableCell>
                   <TableCell>
-                    <Badge variant="outline" className="font-normal">
+                    <Badge variant="outline" className="font-normal text-black">
                       {facility.package_name || "Unknown Package"}
                     </Badge>
                   </TableCell>

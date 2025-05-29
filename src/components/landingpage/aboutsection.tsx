@@ -12,18 +12,20 @@ const AboutSection = () => {
           className={`md:col-end-6 col-start-1 col-end-7 ${phudu.className} font-extrabold text-3xl md:text-5xl md:text-left `}
         >
           <h1>ABOUT</h1>
-          <span>PARK ADVENTURE</span>
+          <span>Batok Rafting</span>
         </div>
         <div className="md:col-end-13 md:col-start-6 col-start-1 col-end-7 ">
-          <p className="text-gray-400">
-            PT. Adventure Park Indonesia adalah destinasi rekreasi terpercaya
-            yang menghadirkan petualangan berkualitas sejak 2010. Kami
-            berkomitmen menjadi tujuan rekreasi keluarga dan perusahaan yang
-            menyajikan pengalaman seru dengan fasilitas terbaik dan keamanan
-            terjamin. Berlokasi strategis di kawasan Bogor dengan pemandangan
-            alam yang memukau, Adventure Park hadir sebagai surga petualangan
-            yang menawarkan berbagai aktivitas menantang dan menyenangkan untuk
-            semua usia.
+          <p className="text-gray-400 line-clamp-5">
+            Didirikan pada tahun 2014, Batok Rafting hadir sebagai penyedia
+            layanan wisata petualangan di kawasan Caringin, Bogor.Kami
+            menawarkan pengalaman seru dan menantang melalui kegiatan arung
+            jeram (rafting) dll serta kegiatan gathering, outing, raker atau
+            acara besar lainnya. Beragam paket one day trip, two day trip &
+            halfday trip yang dirancang untuk semua kalangan - mulai dari pemula
+            hingga pecinta adrenalin sejati. Lokasi Strategis, Alam yang Asri
+            Berlokasi di Jl. Muara Jaya, Kecamatan Caringin, Kabupaten Bogor,
+            area kami dikelilingi oleh keindahan alam pegunungan yang masih
+            asri, menjadikan setiap petualangan semakin berkesan.
           </p>
         </div>
       </div>

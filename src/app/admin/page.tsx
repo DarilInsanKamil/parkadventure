@@ -65,11 +65,11 @@ export default function DashboardPage() {
 
   return (
     <DashboardLayout>
-      <div className="space-y-4">
+      <div className="space-y-4 text-black">
         <h1 className="text-2xl font-bold tracking-tight">
           Welcome back, {session?.user?.name || "Admin"}
         </h1>
-        <p className="text-muted-foreground">
+        <p className="text-black">
           Here&apos;s an overview of your rafting business
         </p>
 

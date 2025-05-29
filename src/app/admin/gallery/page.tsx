@@ -124,7 +124,7 @@ export default function GalleryPage() {
 
   return (
     <DashboardLayout>
-      <div className="space-y-4">
+      <div className="space-y-4 text-black">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold tracking-tight">Gallery</h1>
           <Button onClick={() => router.push("/admin/gallery/new")}>
@@ -134,10 +134,10 @@ export default function GalleryPage() {
         
         <div className="flex items-center py-4">
           <div className="relative max-w-sm">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+            <Search className="absolute left-2.5 top-2.5 h-4 w-4" />
             <Input
               placeholder="Search gallery..."
-              className="pl-8"
+              className="pl-8 placeholder:text-black"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -146,11 +146,11 @@ export default function GalleryPage() {
         
         {loading ? (
           <div className="flex items-center justify-center h-64">
-            <p className="text-lg text-muted-foreground">Loading gallery items...</p>
+            <p className="text-lg">Loading gallery items...</p>
           </div>
         ) : filteredItems.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-64 space-y-3">
-            <p className="text-lg text-muted-foreground">No gallery items found</p>
+            <p className="text-lg">No gallery items found</p>
             {searchTerm ? (
               <Button variant="outline" onClick={() => setSearchTerm("")}>
                 Clear Search
@@ -165,7 +165,7 @@ export default function GalleryPage() {
           <div className="border rounded-md">
             <Table>
               <TableHeader>
-                <TableRow>
+                <TableRow className="dark:bg-black">
                   <TableHead>Image</TableHead>
                   <TableHead>Title</TableHead>
                   <TableHead>Featured</TableHead>

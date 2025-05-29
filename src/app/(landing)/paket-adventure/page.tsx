@@ -4,6 +4,8 @@ import React from "react";
 import Image from "next/image";
 import { Clock, Users, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { formatRupiah } from "@/lib/convertPrice";
 
 // Type definitions
 interface Facility {
@@ -23,6 +25,15 @@ interface Package {
   game_name: string;
   facilities: Facility[];
 }
+
+const linkWa = (nama: string, price: number) => {
+  const nomer = "6287770219001";
+  const pesan = `Halo, saya ingin reservasi paket ${nama} dengan harga ${formatRupiah(
+    price
+  )}`;
+  const endcodedPesan = encodeURI(pesan);
+  return `https://api.whatsapp.com/send?phone=${nomer}&text=${endcodedPesan}`;
+};
 
 const Page = async () => {
   const res = await fetch(`${process.env.NEXTAUTH_URL}/api/packages`);
@@ -69,7 +80,7 @@ const Page = async () => {
                   <div className="flex items-center gap-2  mb-4">
                     <Users className="h-4 w-4" />
                     <span>
-                      {pkg.min_participants}-{pkg.max_participants} Persons
+                      {pkg.min_participants}Persons
                     </span>
                   </div>
 
@@ -89,13 +100,14 @@ const Page = async () => {
                       </ul>
                     </div>
                   )}
-
                   <div className="mt-4">
                     <p className="text-2xl font-bold text-primary">
                       Rp {parseInt(pkg.price).toLocaleString("id-ID")}
                     </p>
                   </div>
-                  <Button className="mt-5 w-full">Reservation</Button>
+                  <Link href={`/paket-adventure/${pkg.id_package}/detail`}>
+                    <Button className="mt-5 w-full">Detail</Button>
+                  </Link>
                 </div>
               </div>
             ))}
