@@ -6,6 +6,7 @@ import { GalerySection } from "@/components/landingpage/galerysection";
 import HeroSection from "@/components/landingpage/herosection";
 import { MapSection } from "@/components/landingpage/mapsectio";
 import PacketSection from "@/components/landingpage/packetsection";
+import TestimoniSection from "@/components/landingpage/testmonisection";
 import { Footer } from "@/components/ui/footer";
 import { NavigationBar } from "@/components/ui/navigation";
 
@@ -36,6 +37,9 @@ export default async function Page() {
         </section>
         <section className="pt-20 md:px-10 p-5">
           <GalerySection data={data} />
+        </section>
+        <section className="mt-20 md:px-10 p-5">
+          <TestimoniSection />
         </section>
         <section className="mt-20 md:px-10 p-5">
           <MapSection />

@@ -20,7 +20,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Select } from "@/components/ui/select";
 
 // Define form type directly without Zod
 interface GalleryFormValues {
@@ -48,6 +47,7 @@ export default function Page() {
   // Initialize form without Zod resolver
   const form = useForm<GalleryFormValues>({
     defaultValues: {
+      id_game: null,
       nama_photo: "",
       image_src: "",
       is_active: true,
@@ -105,7 +105,6 @@ export default function Page() {
   // Form submission handler
   async function onSubmit(values: GalleryFormValues) {
     setSubmitting(true);
-
     try {
       // Basic validation
       if (!values.nama_photo || !values.image_src) {
@@ -169,8 +168,13 @@ export default function Page() {
                     <FormItem>
                       <FormLabel>Title</FormLabel>
                       <FormControl>
-                        {/* <Input placeholder="Enter photo title" {...field} value={field.value || ""} /> */}
-                        <select className="p-2 border rounded-md">
+                        <select
+                          className="p-2 border rounded-md"
+                          {...field}
+                          value={field.value?.toString() || ""}
+                        >
+                          <option value="">Pilih Game</option>{" "}
+                          {/* Opsi default/placeholder */}
                           {dataGame.map((res, idx) => (
                             <option key={idx} value={res.id_game}>
                               {res.nama_game}

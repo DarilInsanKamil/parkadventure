@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React, { useState, useEffect } from "react";
 import { phudu } from "@/lib/utils";
@@ -38,14 +38,14 @@ const PacketSection = () => {
     async function fetchPackages() {
       try {
         setLoading(true);
-        const response = await fetch('/api/packages');
+        const response = await fetch("/api/packages");
         if (!response.ok) {
-          throw new Error('Failed to fetch packages');
+          throw new Error("Failed to fetch packages");
         }
         const data = await response.json();
         setPackages(data);
       } catch (error) {
-        console.error('Error fetching packages:', error);
+        console.error("Error fetching packages:", error);
       } finally {
         setLoading(false);
       }
@@ -59,24 +59,25 @@ const PacketSection = () => {
     if (packages.length > 0) {
       // Filter packages by selected activity if needed
       const filteredPackages = selectedActivity
-        ? packages.filter(pkg =>
-          pkg.game_name.toLowerCase().includes(selectedActivity.toLowerCase())
-        )
+        ? packages.filter((pkg) =>
+            pkg.game_name.toLowerCase().includes(selectedActivity.toLowerCase())
+          )
         : packages;
 
       // Format the data
-      const formatted = filteredPackages.map(pkg => ({
+      const formatted = filteredPackages.map((pkg) => ({
         id: pkg.id_package,
-        image: pkg.image_src || '/placeholder.jpg', // Use placeholder if image is missing
+        image: pkg.image_src || "/placeholder.jpg", // Use placeholder if image is missing
         price: pkg.price,
         nama: pkg.name,
         deskripsi: pkg.description,
-        list: pkg.facilities && Array.isArray(pkg.facilities)
-          ? pkg.facilities.map(facility => ({
-            id: facility.id,
-            nama: facility.name
-          }))
-          : [] // Default to empty array if facilities is null or not an array
+        list:
+          pkg.facilities && Array.isArray(pkg.facilities)
+            ? pkg.facilities.map((facility) => ({
+                id: facility.id,
+                nama: facility.name,
+              }))
+            : [], // Default to empty array if facilities is null or not an array
       }));
 
       setFormattedData(formatted);
@@ -84,7 +85,11 @@ const PacketSection = () => {
   }, [packages, selectedActivity]);
 
   const handleActivityChange = (activity: string) => {
-    setSelectedActivity(activity === selectedActivity ? null : activity);
+    if (activity === "semua") {
+      setSelectedActivity(null);
+    } else {
+      setSelectedActivity(activity === selectedActivity ? null : activity);
+    }
   };
 
   return (
@@ -103,6 +108,27 @@ const PacketSection = () => {
         </div>
         <fieldset aria-label="Choose a paket adventure" className="mt-5 ">
           <ul className="flex w-full md:gap-4 gap-2 flex-wrap">
+            <li>
+              <input
+                type="radio"
+                id="semua"
+                name="hosting"
+                value="semua" // Tetap gunakan value "semua" untuk identifikasi, meskipun state-nya null
+                className="hidden peer"
+                checked={selectedActivity === null} // Centang jika selectedActivity adalah null (tidak ada filter spesifik)
+                onChange={() => handleActivityChange("semua")}
+              />
+              <label
+                htmlFor="semua"
+                className="inline-flex items-center px-3 py-2 text-sm text-gray-500 bg-white border rounded-full cursor-pointer dark:border-gray-700 dark:peer-checked:text-gray-900 peer-checked:bg-gray-800 dark:peer-checked:bg-white peer-checked:text-white dark:text-gray-400 dark:bg-gray-800"
+                // onChange pada input sudah cukup, onClick pada label ini opsional tapi bisa dipertahankan
+                onClick={() => handleActivityChange("semua")}
+              >
+                <div className="block">
+                  <p>Semua</p>
+                </div>
+              </label>
+            </li>
             <li>
               <input
                 type="radio"

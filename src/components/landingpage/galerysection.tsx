@@ -16,11 +16,11 @@ export function GalerySection({ data }: { data: GaleryData[] }) {
           Gallery Activity
         </p>
       </div>
-      {data.map((res: GaleryData, idx: number) => {
+      {data.slice(0, 6).map((res: GaleryData, idx: number) => {
         return (
           <div key={idx}>
             <img
-              className=" bg-blue-400 md:w-[300px] w-full md:h-[340px] h-full object-cover"
+              className="bg-blue-400 md:w-[300px] w-full md:h-[340px] h-full object-cover"
               src={res.image_url}
               alt={res.title}
             />

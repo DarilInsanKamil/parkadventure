@@ -25,6 +25,7 @@ export async function GET(req: NextRequest) {
     const result = await query(queryText, queryParams);
     
     return NextResponse.json(result.rows.map(item => ({
+      id_game: item.id_game,
       id_gallery: item.id_galeri,
       title: item.nama_photo,
       image_url: item.image_src,
