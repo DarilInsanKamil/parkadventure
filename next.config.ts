@@ -7,8 +7,12 @@ const nextConfig: NextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  output: 'standalone',
   images: {
     unoptimized: true,
+  },
+  env: {
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
   },
 };
 

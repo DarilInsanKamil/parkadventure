@@ -1,4 +1,4 @@
-"use server"
+export const dynamic = "force-dynamic";
 
 import { query } from "@/lib/db";
 import { FacilitiesClient } from "./facilities-client";
