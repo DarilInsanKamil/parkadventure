@@ -65,32 +65,34 @@ const TestimoniSection = () => {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        testimoni.slice(0, 4).map((res, idx: number) => (
-          <Card key={idx}>
-            <CardContent>
-              <div>{renderRating(res.rating)}</div>
-              <p>{res.content}</p>
-            </CardContent>
-            <CardHeader>
-              <div className="flex gap-2 items-center">
-                {res.avatar_url ? (
-                  <div className="h-8 w-8 rounded-full bg-gray-100 overflow-hidden">
-                    <img
-                      src={res.avatar_url}
-                      alt={res.name}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                ) : (
-                  <div className="h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center">
-                    {res.name.charAt(0)}
-                  </div>
-                )}
-                <p>{res.name}</p>
-              </div>
-            </CardHeader>
-          </Card>
-        ))
+        <div className="flex gap-5 items-center">
+          {testimoni.slice(0, 3).map((res, idx: number) => (
+            <Card key={idx} className="w-full">
+              <CardContent>
+                <div className="mb-1">{renderRating(res.rating)}</div>
+                <p>{res.content}</p>
+              </CardContent>
+              <CardHeader>
+                <div className="flex gap-2 items-center">
+                  {res.avatar_url ? (
+                    <div className="h-8 w-8 rounded-full bg-gray-100 overflow-hidden">
+                      <img
+                        src={res.avatar_url}
+                        alt={res.name}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center">
+                      {res.name.charAt(0)}
+                    </div>
+                  )}
+                  <p>{res.name}</p>
+                </div>
+              </CardHeader>
+            </Card>
+          ))}
+        </div>
       )}
     </div>
   );

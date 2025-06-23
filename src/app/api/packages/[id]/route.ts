@@ -190,14 +190,14 @@ export async function DELETE(
     
     // Check if package has associated facilities (optional)
     const facilitiesResult = await query(
-      "SELECT * FROM fasilitas WHERE id_paket = $1 LIMIT 1",
+      "SELECT * FROM fasilitas_paket WHERE id_paket = $1 LIMIT 1",
       [id]
     );
     
     if (facilitiesResult.rows.length > 0) {
       // Delete associated facilities first
       await query(
-        "DELETE FROM fasilitas WHERE id_paket = $1",
+        "DELETE FROM fasilitas_paket WHERE id_paket = $1",
         [id]
       );
     }
