@@ -11,7 +11,7 @@ export function Footer() {
         </h1>
         <h4>Jl. Muara Jaya, Kecamatan Caringin, Kabupaten Bogor,</h4>
         <ul>
-          <li>Whatsapp: 0287770219001</li>
+          <li>Whatsapp: 087770219001</li>
           <li>Email: cvbatokrafting@gmail.com</li>
         </ul>
       </div>
